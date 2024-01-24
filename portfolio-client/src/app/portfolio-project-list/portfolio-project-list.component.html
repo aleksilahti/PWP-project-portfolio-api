@@ -1,7 +1,19 @@
-<p>portfolio-project-list works!</p>
-
-<ul>
-    <li *ngFor="let project of projectService.projects">
-        <h2>{{project.name}}</h2>
-    </li>
+<ul class="portfolio-cards">
+    <div class="filters-bar">
+        <mat-chip-listbox multiple aria-label="Filter selection">
+            <span>Filter by tag/status:</span>
+            <mat-chip-option
+            *ngFor="let filter of availableFilters" 
+            (click)="toggleFilter(filter)" 
+            [selected]="filterIsSelected(filter)"
+            color="accent" 
+            >
+            {{filter}}
+            </mat-chip-option>
+          </mat-chip-listbox>
+        
+    </div>
+    <div *ngFor="let project of this.projects">
+        <project-card  [project]="project"></project-card>
+    </div>
 </ul>

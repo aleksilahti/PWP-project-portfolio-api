@@ -1,0 +1,25 @@
+<mat-card class="card">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title>
+        <mat-icon *ngIf="project.status === 'Finished'" matTooltip="{{project.status}}" aria-hidden="false" aria-label="Done icon" fontIcon="done"></mat-icon> 
+        <mat-icon *ngIf="project.status === 'Active'" matTooltip="{{project.status}}" aria-hidden="false" aria-label="Cached icon" fontIcon="cached"></mat-icon>
+        <mat-icon *ngIf="project.status === 'On hold'" matTooltip="{{project.status}}" aria-hidden="false" aria-label="Blocked icon" fontIcon="blocked"></mat-icon>
+        <mat-icon *ngIf="project.status === 'Inactive'" matTooltip="{{project.status}}" aria-hidden="false" aria-label="History icon" fontIcon="history"></mat-icon>
+        {{project.name}}</mat-card-title>
+      <mat-card-subtitle>{{project.short_description}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions >
+        <mat-chip *ngFor="let tag of project.tags">{{tag}}</mat-chip>
+      </mat-card-actions>
+    <img mat-card-image src={{project.imageUrl}} alt="">
+    <mat-card-content>
+      <p>
+        {{project.long_description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>

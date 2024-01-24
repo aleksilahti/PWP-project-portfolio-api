@@ -11,5 +11,5 @@ import { ToolbarComponent } from './toolbar.component';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'portfolio-client';
+  title = 'Portfolio';
 }
